@@ -6,16 +6,42 @@
 <style>
 body{margin:0;font-family:sans-serif;background:linear-gradient(135deg,blue,pink);color:white;padding:20px}
 .chat{background:white;color:black;border-radius:20px;padding:15px;margin:10px 0;box-shadow:0 5px 15px rgba(0,0,0,0.3)}
+#chat {
+  height: 300px;
+  overflow-y: auto;
+  padding: 10px;
+  background: #e5ddd5;
+}
+
+.chat {
+  background: white;
+  color: black;
+  border-radius: 15px;
+  padding: 8px 12px;
+  margin: 5px 0;
+  max-width: 70%;
+  display: block;
+  width: fit-content;
+}
+
+.chat:nth-child(odd) {
+  background: #dcf8c6;
+  margin-left: auto;
+  text-align: right;
+}
 </style>
 </head>
 <body>
-<h1>WhatsApp 3D 🔥</h1>
-<div class="chat"><b>Nala :</b> Salut ça va ?</div>
-<div class="chat"><b>Toi :</b> Oui et toi ?</div>
-<div class="chat"><b>Nala :</b> Bien ! Ton app est trop belle</div>
+<h1><h1>WhatsApp 3D 🔥</h1>
+<div id="chat">
+  <div class="chat"><b>Nala :</b> Salut ça va ?</div>
+  <div class="chat"><b>Toi :</b> Oui et toi ?</div>
+  <div class="chat"><b>Nala :</b> Bien ! Ton app est trop belle</div>
+</div>
 <div class="chat-input">
   <input type="text" placeholder="Tape ton message..." id="message">
   <button onclick="envoyer()">Envoyer</button>
+</div>
 </div>
 
 <style>
@@ -45,13 +71,20 @@ body{margin:0;font-family:sans-serif;background:linear-gradient(135deg,blue,pink
   font-weight: bold;
 }
 </style>
-
-<script>
+  <script>
 function envoyer() {
-  let msg = document.getElementById('message').value;
+  var msg = document.getElementById("message").value;
   if(msg.trim() != "") {
-    alert("Toi : " + msg);
-    document.getElementById('message').value = "";
+    var chat = document.getElementById("chat");
+    var div = document.createElement("div");
+    div.className = "chat";
+    div.innerHTML = "<b>Toi :</b> " + msg;
+    chat.appendChild(div);
+    document.getElementById("message").value = "";
+    chat.scrollTop = chat.scrollHeight;
+  }
+}
+</script>
   }
 }
 </script>

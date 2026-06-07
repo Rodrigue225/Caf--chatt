@@ -13,5 +13,47 @@ body{margin:0;font-family:sans-serif;background:linear-gradient(135deg,blue,pink
 <div class="chat"><b>Nala :</b> Salut ça va ?</div>
 <div class="chat"><b>Toi :</b> Oui et toi ?</div>
 <div class="chat"><b>Nala :</b> Bien ! Ton app est trop belle</div>
-</body>
+<div class="chat-input">
+  <input type="text" placeholder="Tape ton message..." id="message">
+  <button onclick="envoyer()">Envoyer</button>
+</div>
+
+<style>
+.chat-input {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  padding: 10px;
+  background: #075e54;
+}
+.chat-input input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 20px;
+  border: none;
+  font-size: 16px;
+}
+.chat-input button {
+  margin-left: 8px;
+  padding: 12px 20px;
+  border-radius: 20px;
+  border: none;
+  background: #25d366;
+  color: white;
+  font-weight: bold;
+}
+</style>
+
+<script>
+function envoyer() {
+  let msg = document.getElementById('message').value;
+  if(msg.trim() != "") {
+    alert("Toi : " + msg);
+    document.getElementById('message').value = "";
+  }
+}
+</script>
+</body>  
 </html>
